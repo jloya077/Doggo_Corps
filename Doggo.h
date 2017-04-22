@@ -16,7 +16,7 @@ public:
 
 	Doggo(float x, float y, float w, float h);
 
-	void gravity();
+	void gravity(float y_shift);
 	void jump(float y_shift);
 
 	float getY() const { return y; }

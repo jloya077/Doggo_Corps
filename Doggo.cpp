@@ -1,5 +1,4 @@
 #include "Doggo.h"
-#include <cstdio>
 
 Doggo::Doggo(float x, float y, float w, float h)
 {
@@ -10,9 +9,9 @@ Doggo::Doggo(float x, float y, float w, float h)
 	updateVals(x, y, w, h);
 }
 
-void Doggo::gravity()
+void Doggo::gravity(float y_shift)
 {
-	y -= 0.05f;
+	y -= y_shift;
 
 	if (y < -0.55)
 		y += 0.05f;
