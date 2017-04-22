@@ -7,7 +7,7 @@
 class Doggo : public TexRect
 {
 	float x, xMult;
-	float y, yMult;
+	float y, yMult = 0.8f;
 	float w;
 	float h;
 
