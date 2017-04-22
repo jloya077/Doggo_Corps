@@ -7,7 +7,7 @@
 class Doggo : public TexRect
 {
 	float x, xMult;
-	float y, yMult;
+	float y, yMult = 0.8f;
 	float w;
 	float h;
 
@@ -16,7 +16,7 @@ public:
 
 	Doggo(float x, float y, float w, float h);
 
-	void gravity();
+	void gravity(float y_shift);
 	void jump(float y_shift);
 
 	float getY() const { return y; }
