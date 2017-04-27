@@ -7,17 +7,18 @@
 class Doggo : public TexRect
 {
 	float x, xMult;
-	float y, yMult = 0.8f;
+	float y, yMult;
 	float w;
 	float h;
 
 public:
 	bool isJumping = 0;
+	bool jumpReset = 0;
 
 	Doggo(float x, float y, float w, float h);
 
-	void gravity(float y_shift);
-	void jump(float y_shift);
+	void gravity();
+	void jump();
 
 	float getY() const { return y; }
 };
