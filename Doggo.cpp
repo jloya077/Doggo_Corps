@@ -14,9 +14,9 @@ Doggo::Doggo(float x, float y, float w, float h)
 
 void Doggo::gravity()
 {
-	y -= 0.05f;
+	y -= 0.051f;
 
-	if (y < -0.55f)
+	if (y < -0.51f)
 	{
 		if (jumpReset)
 		{
@@ -24,7 +24,7 @@ void Doggo::gravity()
 			yMult = MAX_JUMP_SPEED;
 		}
 
-		y += 0.05f;
+		y = -0.5;
 	}
 
 	updateVals(x, y, w, h);
