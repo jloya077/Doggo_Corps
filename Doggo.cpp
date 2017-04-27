@@ -1,5 +1,6 @@
 #include "Doggo.h"
-#define MAX_JUMP_SPEED 0.25
+#define MAX_JUMP_SPEED 0.2f
+#define MAX_WALK_SPEED 0.2f
 
 Doggo::Doggo(float x, float y, float w, float h)
 {
@@ -9,14 +10,15 @@ Doggo::Doggo(float x, float y, float w, float h)
 	this->h = h;
 	updateVals(x, y, w, h);
 
+	xMult = 0.0;
 	yMult = MAX_JUMP_SPEED;
 }
 
 void Doggo::gravity()
 {
-	y -= 0.051f;
+	y -= 0.05f;
 
-	if (y < -0.51f)
+	if (y < -0.5f)
 	{
 		if (jumpReset)
 		{
@@ -33,7 +35,22 @@ void Doggo::gravity()
 void Doggo::jump()
 {
 	y += yMult;
-	yMult *= 0.9;
+	yMult *= 0.86;
 	
 	updateVals(x, y, w, h);
 }
+
+//void Doggo::walk(bool dir)
+//{
+//	if (xMult < MAX_WALK_SPEED)
+//		xMult += (MAX_WALK_SPEED * 0.1);
+//	else
+//		xMult = MAX_WALK_SPEED;
+//
+//	if (dir)
+//		x += xMult;
+//	else
+//		x -= xMult;
+//
+//}
+

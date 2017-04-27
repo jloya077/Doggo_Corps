@@ -19,6 +19,7 @@ public:
 
 	void gravity();
 	void jump();
+	//void walk(bool dir);	// 0 is left, 1 is right
 
 	float getY() const { return y; }
 };
