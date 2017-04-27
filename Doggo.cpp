@@ -1,21 +1,27 @@
-#include "Doggo.h"
+#include "Doggo.hpp"
+#include <cstdio>
 #define MAX_JUMP_SPEED 0.2f
-#define MAX_WALK_SPEED 0.2f
-
-Doggo::Doggo(float x, float y, float w, float h)
+void Doggo::updateVals(float x, float y, float w, float h)
 {
 	this->x = x;
 	this->y = y;
 	this->w = w;
 	this->h = h;
-	updateVals(x, y, w, h);
-
+}
+Doggo::Doggo(float x, float y, float w, float h)
+{
+	this->x = x;
+    this->y = y;
+    this->w = w;
+    this->h = h;
+	TexRect(x, y, w, h);
 	xMult = 0.0;
 	yMult = MAX_JUMP_SPEED;
 }
 
 void Doggo::gravity()
 {
+
 	y -= 0.05f;
 
 	if (y < -0.5f)
@@ -28,29 +34,21 @@ void Doggo::gravity()
 
 		y = -0.5;
 	}
-
-	updateVals(x, y, w, h);
+	TexRect(x, y, w, h);
 }
 
-void Doggo::jump()
+void Doggo::jump(float y_shift)
 {
 	y += yMult;
 	yMult *= 0.86;
-	
-	updateVals(x, y, w, h);
+
+	TexRect(x, y, w, h);
 }
-
-//void Doggo::walk(bool dir)
-//{
-//	if (xMult < MAX_WALK_SPEED)
-//		xMult += (MAX_WALK_SPEED * 0.1);
-//	else
-//		xMult = MAX_WALK_SPEED;
-//
-//	if (dir)
-//		x += xMult;
-//	else
-//		x -= xMult;
-//
-//}
-
+int Doggo::move(float a)
+{
+	if (a == 'a')
+		return 1;
+	if (a == 'd')
+		return 2;
+	else return 0;
+}

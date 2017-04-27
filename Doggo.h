@@ -13,13 +13,12 @@ class Doggo : public TexRect
 
 public:
 	bool isJumping = 0;
-	bool jumpReset = 0;
 
 	Doggo(float x, float y, float w, float h);
 
-	void gravity();
-	void jump();
-	//void walk(bool dir);	// 0 is left, 1 is right
+	void gravity(float y_shift);
+	void jump(float y_shift);
+	
 
 	float getY() const { return y; }
 };
