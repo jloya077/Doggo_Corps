@@ -6,8 +6,10 @@
 class Background : public TexRect
 {
 private:
+
 	float texleft, texright, x, y, w, h;
 public:
+
 	Background(float x = 0, float y = 0, float w = 0.5, float h = 0.5, float tl = 0, float tr = 0.5)
 	{
 		this->x = x;
@@ -18,12 +20,12 @@ public:
 		texleft = tl;
 		texright = tr;
 	}
+
 	void updateTexCoords(float tl, float tr) { // move this to correct subclass
 		texleft = tl;
 		texright = tr;
 	}
-	float getTL() { return texleft; }
-	float getTR() { return texright; }
+
 	void draw() {
 		glEnable(GL_TEXTURE_2D);
 		glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
@@ -46,5 +48,9 @@ public:
 
 		glDisable(GL_TEXTURE_2D);
 	}
+
+	float getTL() { return texleft; }
+	float getTR() { return texright; }
+
 };
 #endif
